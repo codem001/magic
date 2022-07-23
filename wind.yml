@@ -1,0 +1,25 @@
+type: install
+version: 1.4
+
+id: windows
+name: windows
+
+homepage: https://speedtest.net/
+description:
+  short: speedtest.net bandwidth mesurement utility
+  text: |
+   speedtest.net bandwidth mesurement utility.
+
+nodes:
+- cloudlets: 16
+  nodeGroup: vds
+  extip: true
+  nodeType: windows2012
+
+onInstall:
+  - setupSpeedtest
+
+actions:
+  setupSpeedtest:
+    - cmd [vds]: |-
+        systeminfo
