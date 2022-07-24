@@ -1,11 +1,17 @@
-from selenium import webdriver 
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 import time
+
 chrome_options = Options()
 chrome_options.add_argument('--no-sandbox')
-driver = webdriver.Chrome(options=chrome_options)
-start_url = "https://www.youtube.com/watch?v=MR-MPwaN7Ns?&autoplay=1"
-driver.get(start_url)
-driver.get_screenshot_as_file("screenshot1.png")
+browser = webdriver.Chrome(options=chrome_options)
 
-time.sleep(10000)
+browser.get("https://youtu.be/14Cm65o9AR4")
+
+WebDriverWait(browser, 10).until(EC.element_to_be_clickable(
+(By.XPATH, "//button[@aria-label='Play']"))).click()
+
+time.sleep(1000000)
